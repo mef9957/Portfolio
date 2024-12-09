@@ -1,0 +1,896 @@
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Sukar', sans-serif; /* Fallback to sans-serif */
+    color: white;
+}
+
+h1, h2, h3, p, nav, a {
+    font-family: 'Sukar', sans-serif;
+}
+
+
+/* Background */
+#vanta-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Navigation Bar */
+.l-side-nav {
+    position: fixed;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.side-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Center-align text and line */
+    position: relative;
+}
+/* Vertical Line */
+.side-nav::before {
+    content: '';
+    position: absolute;
+    left: 15px; /* Center the line */
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Light vertical line */
+    transform: translateX(-50%);
+}
+
+/* Navigation Items */
+.side-nav li {
+    margin: 30px 0; /* Spacing between items */
+    position: relative;
+    padding-left: 40px;
+}
+.side-nav li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5); /* Default dimmed color */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between number and text */
+    transition: color 0.3s ease;
+}
+.side-nav li .nav-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    left: 0;
+}
+
+.side-nav li .nav-text {
+    margin-left: 20px; /* Move the words slightly to the right */
+}
+.side-nav li a:hover,
+.side-nav li.is-active a {
+    color: #00bcd4; /* Highlight color for active link */
+}
+
+.side-nav li::after {
+    content: '•'; /* Circle indicator */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.5); /* Dimmed dot */
+    transition: color 0.3s ease;
+}
+
+.side-nav li.is-active::after {
+    color: #00bcd4; /* Active dot */
+}
+.is-active a {
+    color: #00bcd4;
+}
+
+/* Sections */
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home Section */
+
+/* Home Section Background */
+.home-background {
+    position: relative; /* Position relative for stacking */
+    background-image: url('images/homebg.png'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the full section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Flexbox for content alignment */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure nothing spills outside */
+}
+
+/* Centered Name Styling */
+.centered-name {
+    position: absolute;
+    top: 50px; /* Slightly below the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    font-size: 3rem; /* Adjust font size */
+    font-weight: bold;
+    text-align: center;
+    color: white; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add contrast with a subtle shadow */
+    z-index: 2; /* Ensure it's above the background image */
+}
+
+/* Ensure Vertical Navigation is Above the Background */
+.l-side-nav {
+    position: fixed;
+    left: 20px; /* Adjust spacing from the left */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100; /* Keeps it above other content */
+}
+
+/* Centered Name */
+.centered-name {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+/* Image Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 columns */
+    grid-auto-rows: 200px; /* Default row height */
+    gap: 10px; /* Space between images */
+    margin-top: 100px; /* Push grid below the name */
+    width: 80%; /* Limit grid width */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fit nicely */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Grid Items */
+.grid-item {
+    position: relative;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Prevent distortion, maintain aspect ratio */
+    border-radius: 8px; /* Optional rounded corners */
+}
+
+/* Tall Items */
+.grid-item.tall {
+    grid-row: span 4; /* Span across multiple rows */
+}
+
+/* Wide Items */
+.grid-item.wide {
+    grid-column: span 2; /* Span across multiple columns */
+}
+
+
+/* Home Section Grid */
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-gap: 10px; /* Gap between images */
+    padding: 10px;
+    max-width: 80%; /* Set maximum width of the grid */
+    margin: 0 auto; /* Center the grid */
+}
+
+.row img {
+    width: 100%; /* Make images fill the grid cell */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop images to fill the cell */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+
+.column img {
+    width: 100px;
+    margin: 5px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* About section picture */ 
+#about {
+    display: flex;
+    flex-direction: column; /* Stack title and content */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0px;
+    background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+    text-align: center; /* Center align the title */
+    box-sizing: border-box;
+}
+.section-title {
+    font-size: 2.5rem; /* Larger title font */
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 30px; /* Space below the title */
+    text-transform: uppercase; /* Make it all caps */
+}
+
+.about-container {
+    display: flex;
+    align-items: center; /* Vertically center align */
+    justify-content: center;
+    width: 80%;
+    gap: 30px; /* Space between image and text */
+}
+
+.about-image{
+    width: 350px; /* Adjust size of the photo */
+    height: 350px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image is properly cropped */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.about-text {
+    max-width: 600px; /* Limit text width */
+    text-align: left;
+    color: white;
+    font-size: 1.1rem; /* Slightly larger font */
+    line-height: 1.6; /* Improve readability with line height */
+    margin-left: 50px; /* Push text further to the right */
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #00bcd4; /* Highlighted color for heading */
+}
+
+.about-text h1{
+    font-size: larger;
+    margin-top: 0%;
+}
+/* Flip Card */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    width: 300px;
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+}
+
+.carousel img:first-child {
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.skill-item img {
+    width: 50px;
+}
+
+.skill-name {
+    display: none;
+    position: absolute;
+}
+
+.skill-item:hover .skill-name {
+    display: block;
+}
+
+.cv-btn {
+    padding: 10px;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Contact */
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+/* font */ 
+@font-face {
+    font-family: 'Sukar';
+    src: url('fonts/SukarRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Projects Section */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.6); /* Optional: dark semi-transparent background */
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 85px;
+}
+/* Wrapper for content inside the section */
+.projects-content {
+    margin-left: 40px; /* Move content to the right */
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+.section-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-left: 85px;
+}
+
+/* Individual Project Card */
+.project-card {
+    background-color: #2b2b40;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin: 15px 10px 5px;
+    color: #00bcd4; /* Highlighted color */
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #ddd;
+    margin: 0 10px 15px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    color: #00bcd4;
+    text-decoration: none;
+    border: 2px solid #00bcd4;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-gap: 20px; /* Space between grid items */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Individual Skill Items */
+.skill-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Fixed width for skill items */
+    height: 100px; /* Fixed height */
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.skill-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.skill-item:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.skill-name {
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: -20px; /* Position below the image */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.skill-item:hover .skill-name {
+    display: block; /* Show on hover */
+}
+
+/* Download CV Button */
+.cv-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00bcd4;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cv-btn:hover {
+    background-color: #008c9e;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00bcd4; /* Highlighted color */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+}
+
+/* Left Section: Contact Form */
+.contact-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border: 1px solid #00bcd4;
+}
+
+.send-btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #008c9e;
+}
+
+/* Right Section: Contact Info */
+.contact-info {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Center horizontally */
+    justify-content: left; /* Center vertically */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left; /* Center text inside */
+    width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.contact-info h3 {
+    font-size: 2rem; /* Slightly larger for emphasis */
+    margin-bottom: 20px;
+    color: #00bcd4; /* Highlighted color */
+}
+
+.info-item {
+    display: flex;
+    align-items: left;
+    justify-content: left; /* Center icons and text horizontally */
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #00bcd4;
+}
+
+/* General Responsive Styles */
+@media (max-width: 768px) {
+    /* Vertical Navigation Bar */
+    .l-side-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+    }
+
+    .side-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .side-nav li {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    .side-nav li a {
+        font-size: 0.9rem;
+    }
+
+    /* Section Defaults */
+    section {
+        padding: 20px;
+        height: auto;
+        justify-content: flex-start;
+    }
+
+    /* Home Section */
+    .home-background {
+        height: 70vh;
+    }
+
+    .centered-name {
+        font-size: 2rem;
+        top: 20px;
+    }
+
+    /* About Section */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-text {
+        margin-left: 0;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+
+    /* Contact Section */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        margin: 0;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust Font Sizes */
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    p, a {
+        font-size: 0.9rem;
+    }
+
+    /* Navigation */
+    .side-nav {
+        flex-direction: column;
+    }
+
+    .side-nav li {
+        padding: 5px 0;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 10px;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        padding: 15px;
+    }
+
+    .contact-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Large Screens (TVs, 4K monitors) */
+@media (min-width: 1920px) {
+    body {
+        font-size: 1.2rem; /* Increase base font size */
+    }
+
+    h1, h2, h3 {
+        font-size: 3rem; /* Larger headings */
+    }
+
+    .section-title {
+        font-size: 3.5rem; /* Make section titles prominent */
+    }
+
+    /* Navigation Bar */
+    .l-side-nav {
+        left: 50px; /* Slightly move navigation */
+    }
+
+    .side-nav li a {
+        font-size: 1.5rem; /* Increase font size for better readability */
+    }
+
+    /* Home Section */
+    .home-background {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .centered-name {
+        font-size: 4rem; /* Larger font for names */
+        top: 100px;
+    }
+
+    /* About Section */
+    .about-container {
+        width: 70%; /* Expand about section content */
+    }
+
+    .about-image {
+        width: 400px;
+        height: 400px;
+    }
+
+    .about-text {
+        font-size: 1.3rem; /* Slightly larger text */
+        line-height: 2rem;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for large displays */
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 2rem; /* Larger project titles */
+    }
+
+    .project-description {
+        font-size: 1.2rem;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: repeat(5, 1fr); /* 5 columns for better spacing */
+        gap: 30px;
+    }
+
+    .skill-item img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Contact Section */
+    .contact-container {
+        gap: 80px;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 40px;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        font-size: 2.5rem;
+    }
+}
